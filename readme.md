@@ -17,6 +17,7 @@ Git repository ( [https://github.com/ArturGrigio/125-Project](https://github.com
   2. Event Title
   3. Event Description
   4. Event Image
+  5. Tags describing event type
 2. The project will have a generated (simulated) data stream of events. The live data feed will be provided by the user (in form of the user&#39;s location longitude and latitude), and user&#39;s view will update based on his location.
 
 **Approach:**
