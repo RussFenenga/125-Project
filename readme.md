@@ -6,7 +6,7 @@ THOMAS HALSTEAD ( [halsteat@uci.edu](mailto:halsteat@uci.edu))
 
 RUSSEL FENENGA ( [russfenenga@gmail.com)](mailto:russfenenga@gmail.com))
 
-JONATHAN PETOTE ()
+JONATHAN PETOTE ( [jpetote@uci.edu)](mailto:jpetote@uci.edu))
 
 Git repository ( [https://github.com/ArturGrigio/125-Project](https://github.com/ArturGrigio/125-Project))
 
