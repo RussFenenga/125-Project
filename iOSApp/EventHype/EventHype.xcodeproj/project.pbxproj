@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4C91D1DE461CE740D2329451 /* libPods-EventHype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B890ADD89E9ADDD74260E9F /* libPods-EventHype.a */; };
+		893522CE1E6F4F760008CF2C /* AddEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 893522CC1E6F4F760008CF2C /* AddEvent.storyboard */; };
+		893522D01E6F4FDE0008CF2C /* EventMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 893522CF1E6F4FDE0008CF2C /* EventMap.storyboard */; };
+		893522D31E6F51C30008CF2C /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893522D21E6F51C30008CF2C /* AddEventViewController.m */; };
 		893885951E6CDDBB00B70D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 893885941E6CDDBB00B70D79 /* main.m */; };
 		893885981E6CDDBB00B70D79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 893885971E6CDDBB00B70D79 /* AppDelegate.m */; };
 		8938859B1E6CDDBB00B70D79 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8938859A1E6CDDBB00B70D79 /* ViewController.m */; };
@@ -22,6 +25,10 @@
 /* Begin PBXFileReference section */
 		2E4E5592F4835BC15212812A /* Pods-EventHype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventHype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventHype/Pods-EventHype.debug.xcconfig"; sourceTree = "<group>"; };
 		3B890ADD89E9ADDD74260E9F /* libPods-EventHype.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EventHype.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		893522CD1E6F4F760008CF2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AddEvent.storyboard; sourceTree = "<group>"; };
+		893522CF1E6F4FDE0008CF2C /* EventMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventMap.storyboard; sourceTree = "<group>"; };
+		893522D11E6F51C30008CF2C /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
+		893522D21E6F51C30008CF2C /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		893885901E6CDDBB00B70D79 /* EventHype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventHype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		893885941E6CDDBB00B70D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		893885961E6CDDBB00B70D79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -88,12 +95,16 @@
 				893885991E6CDDBB00B70D79 /* ViewController.h */,
 				8938859A1E6CDDBB00B70D79 /* ViewController.m */,
 				8938859C1E6CDDBB00B70D79 /* Main.storyboard */,
+				893522CF1E6F4FDE0008CF2C /* EventMap.storyboard */,
+				893522CC1E6F4F760008CF2C /* AddEvent.storyboard */,
 				8938859F1E6CDDBB00B70D79 /* Assets.xcassets */,
 				89FC890A1E6F37C400E18C3C /* logo.png */,
 				893885A11E6CDDBB00B70D79 /* LaunchScreen.storyboard */,
 				893885A41E6CDDBB00B70D79 /* Info.plist */,
 				89B3AAC11E6F2B6300A16B9C /* GoogleService-Info.plist */,
 				893885931E6CDDBB00B70D79 /* Supporting Files */,
+				893522D11E6F51C30008CF2C /* AddEventViewController.h */,
+				893522D21E6F51C30008CF2C /* AddEventViewController.m */,
 			);
 			path = EventHype;
 			sourceTree = "<group>";
@@ -183,6 +194,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				893885A31E6CDDBB00B70D79 /* LaunchScreen.storyboard in Resources */,
+				893522CE1E6F4F760008CF2C /* AddEvent.storyboard in Resources */,
+				893522D01E6F4FDE0008CF2C /* EventMap.storyboard in Resources */,
 				89FC890B1E6F37C400E18C3C /* logo.png in Resources */,
 				89B3AAC21E6F2B6300A16B9C /* GoogleService-Info.plist in Resources */,
 				893885A01E6CDDBB00B70D79 /* Assets.xcassets in Resources */,
@@ -246,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8938859B1E6CDDBB00B70D79 /* ViewController.m in Sources */,
+				893522D31E6F51C30008CF2C /* AddEventViewController.m in Sources */,
 				893885981E6CDDBB00B70D79 /* AppDelegate.m in Sources */,
 				893885951E6CDDBB00B70D79 /* main.m in Sources */,
 			);
@@ -254,6 +268,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		893522CC1E6F4F760008CF2C /* AddEvent.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				893522CD1E6F4F760008CF2C /* Base */,
+			);
+			name = AddEvent.storyboard;
+			sourceTree = "<group>";
+		};
 		8938859C1E6CDDBB00B70D79 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
