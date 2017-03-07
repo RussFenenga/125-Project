@@ -37,7 +37,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="JXa-74-HNB">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="cOD-gC-8gk" kind="showDetail" id="toD-II-Qyu"/>
+                                <segue destination="cOD-gC-8gk" kind="presentation" modalPresentationStyle="formSheet" id="toD-II-Qyu"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="dFU-0V-tmQ">

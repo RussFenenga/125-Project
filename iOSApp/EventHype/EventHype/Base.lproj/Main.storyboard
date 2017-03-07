@@ -15,6 +15,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f4P-zE-OnP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Event Map" id="EON-gO-UUX"/>
                     <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X1n-ey-kPO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

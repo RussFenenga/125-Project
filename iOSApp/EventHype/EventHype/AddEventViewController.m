@@ -9,6 +9,7 @@
 #import "AddEventViewController.h"
 
 @interface AddEventViewController ()
+- (IBAction)cancelAddEvent:(UIBarButtonItem *)sender;
 
 @end
 
@@ -34,4 +35,9 @@
 }
 */
 
+- (IBAction)cancelAddEvent:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 @end
