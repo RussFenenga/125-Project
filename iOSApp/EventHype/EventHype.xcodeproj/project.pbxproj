@@ -16,6 +16,7 @@
 		893885A31E6CDDBB00B70D79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 893885A11E6CDDBB00B70D79 /* LaunchScreen.storyboard */; };
 		89B3AAC21E6F2B6300A16B9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89B3AAC11E6F2B6300A16B9C /* GoogleService-Info.plist */; };
 		89FC890B1E6F37C400E18C3C /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 89FC890A1E6F37C400E18C3C /* logo.png */; };
+		89FC890D1E6F42B700E18C3C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89FC890C1E6F42B700E18C3C /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		89B3AAC11E6F2B6300A16B9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89FC89091E6F357700E18C3C /* EventHype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EventHype.entitlements; sourceTree = "<group>"; };
 		89FC890A1E6F37C400E18C3C /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		89FC890C1E6F42B700E18C3C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B78AAEA7E57C2DE1CF7E4416 /* Pods-EventHype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventHype.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventHype/Pods-EventHype.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89FC890D1E6F42B700E18C3C /* MapKit.framework in Frameworks */,
 				4C91D1DE461CE740D2329451 /* libPods-EventHype.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +109,7 @@
 		F7F210ADF243C6971F8497B2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89FC890C1E6F42B700E18C3C /* MapKit.framework */,
 				3B890ADD89E9ADDD74260E9F /* libPods-EventHype.a */,
 			);
 			name = Frameworks;
