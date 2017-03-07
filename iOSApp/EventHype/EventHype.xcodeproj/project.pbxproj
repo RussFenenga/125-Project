@@ -15,6 +15,7 @@
 		893885A01E6CDDBB00B70D79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8938859F1E6CDDBB00B70D79 /* Assets.xcassets */; };
 		893885A31E6CDDBB00B70D79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 893885A11E6CDDBB00B70D79 /* LaunchScreen.storyboard */; };
 		89B3AAC21E6F2B6300A16B9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89B3AAC11E6F2B6300A16B9C /* GoogleService-Info.plist */; };
+		89FC890B1E6F37C400E18C3C /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 89FC890A1E6F37C400E18C3C /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		893885A21E6CDDBB00B70D79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		893885A41E6CDDBB00B70D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89B3AAC11E6F2B6300A16B9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		89FC89091E6F357700E18C3C /* EventHype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EventHype.entitlements; sourceTree = "<group>"; };
+		89FC890A1E6F37C400E18C3C /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		B78AAEA7E57C2DE1CF7E4416 /* Pods-EventHype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventHype.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventHype/Pods-EventHype.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,12 +79,14 @@
 		893885921E6CDDBB00B70D79 /* EventHype */ = {
 			isa = PBXGroup;
 			children = (
+				89FC89091E6F357700E18C3C /* EventHype.entitlements */,
 				893885961E6CDDBB00B70D79 /* AppDelegate.h */,
 				893885971E6CDDBB00B70D79 /* AppDelegate.m */,
 				893885991E6CDDBB00B70D79 /* ViewController.h */,
 				8938859A1E6CDDBB00B70D79 /* ViewController.m */,
 				8938859C1E6CDDBB00B70D79 /* Main.storyboard */,
 				8938859F1E6CDDBB00B70D79 /* Assets.xcassets */,
+				89FC890A1E6F37C400E18C3C /* logo.png */,
 				893885A11E6CDDBB00B70D79 /* LaunchScreen.storyboard */,
 				893885A41E6CDDBB00B70D79 /* Info.plist */,
 				89B3AAC11E6F2B6300A16B9C /* GoogleService-Info.plist */,
@@ -142,6 +147,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = HY5NYNN4D3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -169,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				893885A31E6CDDBB00B70D79 /* LaunchScreen.storyboard in Resources */,
+				89FC890B1E6F37C400E18C3C /* logo.png in Resources */,
 				89B3AAC21E6F2B6300A16B9C /* GoogleService-Info.plist in Resources */,
 				893885A01E6CDDBB00B70D79 /* Assets.xcassets in Resources */,
 				8938859E1E6CDDBB00B70D79 /* Main.storyboard in Resources */,
@@ -351,6 +362,7 @@
 			baseConfigurationReference = 2E4E5592F4835BC15212812A /* Pods-EventHype.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EventHype/EventHype.entitlements;
 				DEVELOPMENT_TEAM = HY5NYNN4D3;
 				INFOPLIST_FILE = EventHype/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -364,6 +376,7 @@
 			baseConfigurationReference = B78AAEA7E57C2DE1CF7E4416 /* Pods-EventHype.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EventHype/EventHype.entitlements;
 				DEVELOPMENT_TEAM = HY5NYNN4D3;
 				INFOPLIST_FILE = EventHype/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
