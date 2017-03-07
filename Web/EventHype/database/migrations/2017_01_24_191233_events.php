@@ -13,16 +13,27 @@ class Events extends Migration
      */
     public function up()
     {
-        Schema::create('')
+	    Schema::create('events', function (Blueprint $table) {
+		    $table->increments('id');
+		    $table->string('event_name')->nullable();
+		    $table->string('event_description')->nullable();
+		    $table->string('event_address')->nullable();
+		    $table->string('latitude')->nullable();
+		    $table->string('longitude')->nullable();
+		    $table->string('category')->nullable();
+		    $table->string('subcategory')->nullable();
+		    $table->string('price')->nullable();
+		    $table->timestamps();
+	    });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
-    }
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::drop('events');
+	}
 }

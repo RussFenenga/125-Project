@@ -35,4 +35,12 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+	'firebase' => [
+		'api_key' => 'AIzaSyCtb-YN1iUCUn_Cd36iWtf1k4rZxVJh3Pg', // Only used for JS integration
+		'auth_domain' => 'eventhype-4186a.firebaseapp.com', // Only used for JS integration
+		'database_url' => 'https://eventhype-4186a.firebaseio.com',
+		'secret' => 'eventhype-4186a.appspot.com',
+		'storage_bucket' => '856210841296', // Only used for JS integration
+	],
+
 ];
