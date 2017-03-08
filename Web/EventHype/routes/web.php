@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'PageController@showMain');
+
+Route::get('/eventbrite', 'EventbriteController@authenticate');
