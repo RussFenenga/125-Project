@@ -91,6 +91,7 @@
 //MARK: - Delegates
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
     NSData *dataImage = UIImageJPEGRepresentation([info objectForKey:@"UIImagePickerControllerOriginalImage"],1);
     UIImage *img = [[UIImage alloc] initWithData:dataImage];
     self.imageView.image = nil;

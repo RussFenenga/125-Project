@@ -90,21 +90,17 @@
 			isa = PBXGroup;
 			children = (
 				89FC89091E6F357700E18C3C /* EventHype.entitlements */,
-				893885961E6CDDBB00B70D79 /* AppDelegate.h */,
-				893885971E6CDDBB00B70D79 /* AppDelegate.m */,
 				893885991E6CDDBB00B70D79 /* ViewController.h */,
 				8938859A1E6CDDBB00B70D79 /* ViewController.m */,
 				8938859C1E6CDDBB00B70D79 /* Main.storyboard */,
 				893522CF1E6F4FDE0008CF2C /* EventMap.storyboard */,
-				893522CC1E6F4F760008CF2C /* AddEvent.storyboard */,
 				8938859F1E6CDDBB00B70D79 /* Assets.xcassets */,
 				89381E721E6FCB1B0018D2B1 /* logo.png */,
 				893885A11E6CDDBB00B70D79 /* LaunchScreen.storyboard */,
 				893885A41E6CDDBB00B70D79 /* Info.plist */,
 				89B3AAC11E6F2B6300A16B9C /* GoogleService-Info.plist */,
 				893885931E6CDDBB00B70D79 /* Supporting Files */,
-				893522D11E6F51C30008CF2C /* AddEventViewController.h */,
-				893522D21E6F51C30008CF2C /* AddEventViewController.m */,
+				89B772231E6FD87400446F43 /* AddEventViewController */,
 			);
 			path = EventHype;
 			sourceTree = "<group>";
@@ -112,9 +108,21 @@
 		893885931E6CDDBB00B70D79 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				893885961E6CDDBB00B70D79 /* AppDelegate.h */,
+				893885971E6CDDBB00B70D79 /* AppDelegate.m */,
 				893885941E6CDDBB00B70D79 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89B772231E6FD87400446F43 /* AddEventViewController */ = {
+			isa = PBXGroup;
+			children = (
+				893522CC1E6F4F760008CF2C /* AddEvent.storyboard */,
+				893522D11E6F51C30008CF2C /* AddEventViewController.h */,
+				893522D21E6F51C30008CF2C /* AddEventViewController.m */,
+			);
+			name = AddEventViewController;
 			sourceTree = "<group>";
 		};
 		F7F210ADF243C6971F8497B2 /* Frameworks */ = {

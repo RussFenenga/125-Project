@@ -22,6 +22,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpc-wQ-1aK">
+                                <rect key="frame" x="0.0" y="244" width="375" height="3"/>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="IEi-Pv-txy"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3p-kX-rIK">
                                 <rect key="frame" x="16" y="606" width="343" height="53"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,13 +63,24 @@
                                     <action selector="addEventPhotoButton:" destination="kz4-tE-d8V" eventType="touchUpInside" id="yYb-7C-eH9"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vN5-Mk-3By">
+                                <rect key="frame" x="0.0" y="247" width="375" height="351"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vN5-Mk-3By" firstAttribute="width" secondItem="knM-5H-cQ6" secondAttribute="width" id="4Iz-zW-Y6J"/>
                             <constraint firstAttribute="leadingMargin" secondItem="W3p-kX-rIK" secondAttribute="leading" id="8cx-j7-okg"/>
+                            <constraint firstItem="gpc-wQ-1aK" firstAttribute="width" secondItem="knM-5H-cQ6" secondAttribute="width" id="DfM-2K-PYz"/>
+                            <constraint firstItem="vN5-Mk-3By" firstAttribute="top" secondItem="gpc-wQ-1aK" secondAttribute="bottom" id="Gaa-nn-7Fv"/>
+                            <constraint firstItem="gpc-wQ-1aK" firstAttribute="centerX" secondItem="knM-5H-cQ6" secondAttribute="centerX" id="OzV-TO-bmb"/>
                             <constraint firstItem="o6h-04-my1" firstAttribute="top" secondItem="qos-Ga-GBm" secondAttribute="bottom" id="Sxr-rf-pil"/>
                             <constraint firstItem="o6h-04-my1" firstAttribute="centerX" secondItem="knM-5H-cQ6" secondAttribute="centerX" id="UU4-j4-igF"/>
                             <constraint firstItem="gKr-H2-Etq" firstAttribute="width" secondItem="knM-5H-cQ6" secondAttribute="width" id="adK-L4-JlH"/>
+                            <constraint firstItem="4OQ-PY-cjc" firstAttribute="top" secondItem="vN5-Mk-3By" secondAttribute="bottom" constant="69" id="ebq-LJ-5uo"/>
+                            <constraint firstItem="vN5-Mk-3By" firstAttribute="centerX" secondItem="knM-5H-cQ6" secondAttribute="centerX" id="hG2-q0-0rf"/>
+                            <constraint firstItem="gpc-wQ-1aK" firstAttribute="top" secondItem="o6h-04-my1" secondAttribute="bottom" id="iN5-FR-dQS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W3p-kX-rIK" secondAttribute="trailing" id="kMK-aY-4gD"/>
                             <constraint firstItem="gKr-H2-Etq" firstAttribute="top" secondItem="qos-Ga-GBm" secondAttribute="bottom" id="qEv-ZX-VQw"/>
                             <constraint firstItem="4OQ-PY-cjc" firstAttribute="top" secondItem="W3p-kX-rIK" secondAttribute="bottom" constant="8" id="sD0-ga-5b7"/>

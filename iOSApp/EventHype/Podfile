@@ -5,5 +5,5 @@ target 'EventHype' do
 
 	pod 'Firebase/Core'
 	pod 'Firebase/Messaging'
-
+	pod 'BEMCheckBox'
 end
