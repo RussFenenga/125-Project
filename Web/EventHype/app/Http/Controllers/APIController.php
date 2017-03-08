@@ -17,7 +17,10 @@ class APIController extends Controller
 	    } else {
 		    $column = $request->get('column');
 		    $query = $request->get('query');
-		    return json_encode(Event::where($column, $query)->get());
+		    if($request->has('operator'))
+			    return json_encode(Event::where($column, $request->get('operator'),$query)->get());
+	        else
+		        return json_encode(Event::where($column, $query)->get());
 	    }
     }
 }
