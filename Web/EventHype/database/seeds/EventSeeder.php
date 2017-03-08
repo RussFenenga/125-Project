@@ -11,6 +11,7 @@ class EventSeeder extends Seeder
      */
     public function run()
     {
+    	$tags = ['club', 'restaurant', 'school'];
 	    $faker = Faker\Factory::create();
 
 	    for($i = 0; $i<50; $i++) {
@@ -20,9 +21,13 @@ class EventSeeder extends Seeder
 			    'event_address' => $faker->address(),
 			    'latitude' => $faker->latitude($min = 33.54, $max = 33.74),
 			    'longitude' => $faker->longitude($min = -117.74, $max = -117.94),
-			    'category' => $faker->word(),
+			    'category' => $tags[rand(0,2)],
 			    'subcategory' => $faker->word(),
-			    'price' => (rand(0, 5)) ? rand(10, 35) : "FREE"
+			    'price' => (rand(0, 5)) ? rand(10, 35) : "FREE",
+			    'start_date'=> $faker->date(),
+			    'start_time'=> $faker->time(),
+			    'end_date'=> $faker->date(),
+			    'end_time'=> $faker->time()
 		    ));
 	    }
     }

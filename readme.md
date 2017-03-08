@@ -42,3 +42,17 @@ Git repository ( [https://github.com/ArturGrigio/125-Project](https://github.com
 2. Russel Fenenga – Create the iOS app, connect the app to API, provide the environment for the AWS and Domain name.
 3. Thomas Halstead – Write the frontend of the Desktop app as he would like to learn more about web development.
 4. Jonathan Petote – Write the frontend for the iOS app.
+
+---
+
+#Web API
+
+###Get all events
+ - type: `POST or GET`
+ - url: `eventhype.me/api/events`
+ - returns: `(array)` of event objects
+ 
+###Get specific event
+ - type: `POST or GET`
+ - url: `eventhype.me/api/event` + `?column=`COLUMN_NAME + `&query=`QUERY
+ - returns: `(array)` with event object(s)
