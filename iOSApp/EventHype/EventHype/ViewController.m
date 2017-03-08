@@ -24,6 +24,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    self.eventMapView.delegate = self;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
@@ -31,13 +32,8 @@
         [self.locationManager requestWhenInUseAuthorization];
     
     [self.locationManager startUpdatingLocation];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    CLLocation *location = locations[0];
-    MKCoordinateRegion coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500,500);
-    [self.eventMapView setRegion:coordinateRegion];
     
+    self.eventMapView.userTrackingMode = MKUserTrackingModeFollow;
 }
 
 

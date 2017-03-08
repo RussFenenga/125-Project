@@ -7,9 +7,17 @@
 //
 
 #import "AddEventViewController.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @interface AddEventViewController ()
+
 - (IBAction)cancelAddEvent:(UIBarButtonItem *)sender;
+- (IBAction)addNewEvent:(UIButton *)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *addNewEventButton;
+
+- (IBAction)addEventPhotoButton:(UIButton *)sender;
 
 @end
 
@@ -17,7 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.addNewEventButton.layer.cornerRadius = 10; // this value vary as per your desire
+    self.addNewEventButton.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,5 +48,10 @@
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
+}
+
+- (IBAction)addNewEvent:(UIButton *)sender {
+}
+- (IBAction)addEventPhotoButton:(UIButton *)sender {
 }
 @end
