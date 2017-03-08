@@ -34,6 +34,10 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To choose an image that describes your event.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>To take an image that describes your event.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -11,6 +11,7 @@
 		893522CE1E6F4F760008CF2C /* AddEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 893522CC1E6F4F760008CF2C /* AddEvent.storyboard */; };
 		893522D01E6F4FDE0008CF2C /* EventMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 893522CF1E6F4FDE0008CF2C /* EventMap.storyboard */; };
 		893522D31E6F51C30008CF2C /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893522D21E6F51C30008CF2C /* AddEventViewController.m */; };
+		89381E731E6FCB1B0018D2B1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 89381E721E6FCB1B0018D2B1 /* logo.png */; };
 		893885951E6CDDBB00B70D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 893885941E6CDDBB00B70D79 /* main.m */; };
 		893885981E6CDDBB00B70D79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 893885971E6CDDBB00B70D79 /* AppDelegate.m */; };
 		8938859B1E6CDDBB00B70D79 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8938859A1E6CDDBB00B70D79 /* ViewController.m */; };
@@ -18,7 +19,6 @@
 		893885A01E6CDDBB00B70D79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8938859F1E6CDDBB00B70D79 /* Assets.xcassets */; };
 		893885A31E6CDDBB00B70D79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 893885A11E6CDDBB00B70D79 /* LaunchScreen.storyboard */; };
 		89B3AAC21E6F2B6300A16B9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89B3AAC11E6F2B6300A16B9C /* GoogleService-Info.plist */; };
-		89FC890B1E6F37C400E18C3C /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 89FC890A1E6F37C400E18C3C /* logo.png */; };
 		89FC890D1E6F42B700E18C3C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89FC890C1E6F42B700E18C3C /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +29,7 @@
 		893522CF1E6F4FDE0008CF2C /* EventMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventMap.storyboard; sourceTree = "<group>"; };
 		893522D11E6F51C30008CF2C /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
 		893522D21E6F51C30008CF2C /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
+		89381E721E6FCB1B0018D2B1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		893885901E6CDDBB00B70D79 /* EventHype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventHype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		893885941E6CDDBB00B70D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		893885961E6CDDBB00B70D79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		893885A41E6CDDBB00B70D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89B3AAC11E6F2B6300A16B9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89FC89091E6F357700E18C3C /* EventHype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EventHype.entitlements; sourceTree = "<group>"; };
-		89FC890A1E6F37C400E18C3C /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		89FC890C1E6F42B700E18C3C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B78AAEA7E57C2DE1CF7E4416 /* Pods-EventHype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventHype.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventHype/Pods-EventHype.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,7 +98,7 @@
 				893522CF1E6F4FDE0008CF2C /* EventMap.storyboard */,
 				893522CC1E6F4F760008CF2C /* AddEvent.storyboard */,
 				8938859F1E6CDDBB00B70D79 /* Assets.xcassets */,
-				89FC890A1E6F37C400E18C3C /* logo.png */,
+				89381E721E6FCB1B0018D2B1 /* logo.png */,
 				893885A11E6CDDBB00B70D79 /* LaunchScreen.storyboard */,
 				893885A41E6CDDBB00B70D79 /* Info.plist */,
 				89B3AAC11E6F2B6300A16B9C /* GoogleService-Info.plist */,
@@ -196,8 +196,8 @@
 				893885A31E6CDDBB00B70D79 /* LaunchScreen.storyboard in Resources */,
 				893522CE1E6F4F760008CF2C /* AddEvent.storyboard in Resources */,
 				893522D01E6F4FDE0008CF2C /* EventMap.storyboard in Resources */,
-				89FC890B1E6F37C400E18C3C /* logo.png in Resources */,
 				89B3AAC21E6F2B6300A16B9C /* GoogleService-Info.plist in Resources */,
+				89381E731E6FCB1B0018D2B1 /* logo.png in Resources */,
 				893885A01E6CDDBB00B70D79 /* Assets.xcassets in Resources */,
 				8938859E1E6CDDBB00B70D79 /* Main.storyboard in Resources */,
 			);

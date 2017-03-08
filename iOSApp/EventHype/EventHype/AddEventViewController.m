@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-@interface AddEventViewController ()
+@interface AddEventViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 - (IBAction)cancelAddEvent:(UIBarButtonItem *)sender;
 - (IBAction)addNewEvent:(UIButton *)sender;
@@ -18,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *addNewEventButton;
 
 - (IBAction)addEventPhotoButton:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *addNewPhotoButton;
+
+@property UIImagePickerController *imagePicker;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -27,6 +31,8 @@
     [super viewDidLoad];
     self.addNewEventButton.layer.cornerRadius = 10; // this value vary as per your desire
     self.addNewEventButton.clipsToBounds = YES;
+    [self.addNewEventButton setEnabled:NO];
+    self.imagePicker.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,24 +40,72 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)cancelAddEvent:(UIBarButtonItem *)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)addNewEvent:(UIButton *)sender {
+    
 }
+
 - (IBAction)addEventPhotoButton:(UIButton *)sender {
+    [self promptForSource];
+    [self.addNewEventButton setEnabled:YES];
 }
+
+- (void)promptForSource{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add photo" message:@"Take or select a photo that describes your event." preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *TakePhoto = [UIAlertAction actionWithTitle:@"Take Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+        [self handleCamera];
+    }];
+    UIAlertAction *ChoosePhoto = [UIAlertAction actionWithTitle:@"Choose Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+        [self handleImageGallery];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:TakePhoto];
+    [alert addAction:ChoosePhoto];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)handleCamera {
+    self.imagePicker = [[UIImagePickerController alloc] init];
+    self.imagePicker.delegate = self;
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+}
+
+- (void)handleImageGallery
+{
+    self.imagePicker = [[UIImagePickerController alloc] init];
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    self.imagePicker.delegate = self;
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+}
+
+
+//MARK: - Delegates
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    NSData *dataImage = UIImageJPEGRepresentation([info objectForKey:@"UIImagePickerControllerOriginalImage"],1);
+    UIImage *img = [[UIImage alloc] initWithData:dataImage];
+    self.imageView.image = nil;
+    [self.imageView setImage:img];
+    [self.imageView sizeToFit];
+    
+    //essentially hide the button but we still want it to register touch events
+    self.addNewPhotoButton.backgroundColor = [UIColor clearColor];
+    [self.addNewPhotoButton setTitle:@"" forState:UIControlStateNormal];
+    
+    [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
 @end
