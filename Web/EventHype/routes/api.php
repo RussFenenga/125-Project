@@ -14,3 +14,4 @@ use Illuminate\Http\Request;
 */
 
 Route::match(['GET', 'POST'], '/events', 'APIController@getAll');
+Route::match(['GET', 'POST'], '/event', 'APIController@getEvent');
