@@ -42,7 +42,6 @@ class EventbriteController extends Controller
 		    $data = json_decode($response->getBody());
 
 		    foreach($data->events as $event) {
-		    	print_r($event);
 		    	if(Event::where('id', $event->id)->get()->isEmpty()) {
 				    $start = Carbon::parse($event->start->local);
 				    $end = Carbon::parse($event->end->local);
