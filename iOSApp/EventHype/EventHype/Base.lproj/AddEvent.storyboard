@@ -63,29 +63,384 @@
                                     <action selector="addEventPhotoButton:" destination="kz4-tE-d8V" eventType="touchUpInside" id="yYb-7C-eH9"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vN5-Mk-3By">
-                                <rect key="frame" x="0.0" y="247" width="375" height="351"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FbE-DH-x9w">
+                                <rect key="frame" x="-0.5" y="247" width="375" height="354"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StartDateCell" rowHeight="250" id="Nhg-kG-Dcd" customClass="AddEventExpandableTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="250"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nhg-kG-Dcd" id="g7t-8i-FWq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNS-JL-hLf">
+                                                    <rect key="frame" x="8" y="8" width="96" height="59"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGq-eg-K2J" customClass="BEMCheckBox">
+                                                    <rect key="frame" x="337" y="22" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                            <color key="value" cyan="0.059999999999999998" magenta="1" yellow="1" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ilf-Xa-VYz">
+                                                    <rect key="frame" x="0.0" y="89" width="375" height="161"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="510780331.12559801">
+                                                        <!--2017-03-09 19:25:31 +0000-->
+                                                    </date>
+                                                    <connections>
+                                                        <action selector="datePickerValueChanged:" destination="Nhg-kG-Dcd" eventType="valueChanged" id="xyK-yR-OnY"/>
+                                                    </connections>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ilf-Xa-VYz" firstAttribute="centerX" secondItem="g7t-8i-FWq" secondAttribute="centerX" id="GZ8-XN-wxS"/>
+                                                <constraint firstAttribute="topMargin" secondItem="eNS-JL-hLf" secondAttribute="top" id="O9w-GO-jny"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="DGq-eg-K2J" secondAttribute="bottom" constant="189.5" id="TA1-kH-oyA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ilf-Xa-VYz" secondAttribute="bottom" constant="-8.5" id="YKj-YX-5Kc"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="eNS-JL-hLf" secondAttribute="leading" id="diY-Sz-3R7"/>
+                                                <constraint firstItem="ilf-Xa-VYz" firstAttribute="leading" secondItem="g7t-8i-FWq" secondAttribute="leadingMargin" constant="-8" id="eIY-nj-EBy"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ilf-Xa-VYz" secondAttribute="trailing" constant="-8" id="rXq-fe-tKi"/>
+                                                <constraint firstItem="ilf-Xa-VYz" firstAttribute="top" secondItem="eNS-JL-hLf" secondAttribute="bottom" constant="22" id="snk-wn-HZy"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="eNS-JL-hLf" secondAttribute="bottom" constant="174.5" id="tvC-sB-POq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="DGq-eg-K2J" secondAttribute="trailing" id="ueF-bj-MBf"/>
+                                                <constraint firstItem="DGq-eg-K2J" firstAttribute="top" secondItem="g7t-8i-FWq" secondAttribute="topMargin" constant="14" id="wvL-Es-X4c"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="DateLabel" destination="eNS-JL-hLf" id="Cs0-D8-gGN"/>
+                                            <outlet property="checkBox" destination="DGq-eg-K2J" id="dV9-n2-JFv"/>
+                                            <outlet property="datePicker" destination="ilf-Xa-VYz" id="cvJ-MM-2AL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EndDateCell" rowHeight="250" id="rZd-Em-RlQ" customClass="AddEventExpandableTableViewCell">
+                                        <rect key="frame" x="0.0" y="278" width="375" height="250"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rZd-Em-RlQ" id="8Rn-0l-ARr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTx-6x-Sft">
+                                                    <rect key="frame" x="8" y="8" width="96" height="59"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AsE-Of-uj8" customClass="BEMCheckBox">
+                                                    <rect key="frame" x="337" y="22" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                            <color key="value" cyan="0.059999999999999998" magenta="1" yellow="1" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lGQ-Fs-MKu">
+                                                    <rect key="frame" x="0.0" y="89" width="375" height="161"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="510780331.12559801">
+                                                        <!--2017-03-09 19:25:31 +0000-->
+                                                    </date>
+                                                    <connections>
+                                                        <action selector="datePickerValueChanged:" destination="rZd-Em-RlQ" eventType="valueChanged" id="dC6-Az-G2o"/>
+                                                    </connections>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="topMargin" secondItem="YTx-6x-Sft" secondAttribute="top" id="0RH-gN-NeX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YTx-6x-Sft" secondAttribute="bottom" constant="174.5" id="5d3-U1-tWU"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="lGQ-Fs-MKu" secondAttribute="bottom" constant="-8.5" id="7kf-1R-OXc"/>
+                                                <constraint firstItem="lGQ-Fs-MKu" firstAttribute="centerX" secondItem="8Rn-0l-ARr" secondAttribute="centerX" id="8oQ-X4-WOQ"/>
+                                                <constraint firstItem="lGQ-Fs-MKu" firstAttribute="leading" secondItem="8Rn-0l-ARr" secondAttribute="leadingMargin" constant="-8" id="BWC-X7-5gz"/>
+                                                <constraint firstItem="lGQ-Fs-MKu" firstAttribute="top" secondItem="YTx-6x-Sft" secondAttribute="bottom" constant="22" id="Oen-GE-mZz"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lGQ-Fs-MKu" secondAttribute="trailing" constant="-8" id="Yhi-6I-qIc"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="AsE-Of-uj8" secondAttribute="bottom" constant="189.5" id="bOy-uo-L8U"/>
+                                                <constraint firstItem="AsE-Of-uj8" firstAttribute="top" secondItem="8Rn-0l-ARr" secondAttribute="topMargin" constant="14" id="ejf-QU-7WG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="AsE-Of-uj8" secondAttribute="trailing" id="v9J-So-AMZ"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="YTx-6x-Sft" secondAttribute="leading" id="yNI-gI-BpH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="DateLabel" destination="YTx-6x-Sft" id="lTG-vk-o2v"/>
+                                            <outlet property="checkBox" destination="AsE-Of-uj8" id="4ad-Lu-pQo"/>
+                                            <outlet property="datePicker" destination="lGQ-Fs-MKu" id="LE3-gD-a8C"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NameCell" id="ZEn-Tx-2uo" customClass="AddEventTableViewCell">
+                                        <rect key="frame" x="0.0" y="528" width="375" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZEn-Tx-2uo" id="t7H-lI-bdk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Placeholder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="04J-Xf-3KC">
+                                                    <rect key="frame" x="0.0" y="25.5" width="375" height="24"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                    <connections>
+                                                        <action selector="textFieldDoneEditing:" destination="ZEn-Tx-2uo" eventType="editingDidEnd" id="cK0-kX-gMf"/>
+                                                    </connections>
+                                                </textField>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6a-Cp-4jo" customClass="BEMCheckBox">
+                                                    <rect key="frame" x="337" y="22" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                            <color key="value" cyan="0.059999999999999998" magenta="1" yellow="1" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="04J-Xf-3KC" firstAttribute="centerY" secondItem="t7H-lI-bdk" secondAttribute="centerY" id="Dpb-I8-js2"/>
+                                                <constraint firstItem="04J-Xf-3KC" firstAttribute="leading" secondItem="t7H-lI-bdk" secondAttribute="leadingMargin" constant="-8" id="L09-NC-Srb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="04J-Xf-3KC" secondAttribute="trailing" constant="-8" id="V2U-b3-GLL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="j6a-Cp-4jo" secondAttribute="trailing" id="eq3-Fg-NN4"/>
+                                                <constraint firstItem="j6a-Cp-4jo" firstAttribute="centerY" secondItem="t7H-lI-bdk" secondAttribute="centerY" id="gWH-sT-3Eu"/>
+                                                <constraint firstItem="04J-Xf-3KC" firstAttribute="centerX" secondItem="t7H-lI-bdk" secondAttribute="centerX" id="iX3-fb-z4m"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkBox" destination="j6a-Cp-4jo" id="QOt-gh-hdT"/>
+                                            <outlet property="textField" destination="04J-Xf-3KC" id="LEM-ma-ls1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DescriptionCell" id="Eu0-qG-EiJ" customClass="AddEventTableViewCell">
+                                        <rect key="frame" x="0.0" y="603" width="375" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eu0-qG-EiJ" id="sVO-1H-e5F">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Placeholder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T1H-BC-sdj">
+                                                    <rect key="frame" x="0.0" y="25.5" width="375" height="24"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                    <connections>
+                                                        <action selector="textFieldDoneEditing:" destination="Eu0-qG-EiJ" eventType="editingDidEnd" id="Cii-Ca-MDf"/>
+                                                    </connections>
+                                                </textField>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQw-hf-Vxx" customClass="BEMCheckBox">
+                                                    <rect key="frame" x="337" y="22" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                            <color key="value" cyan="0.059999999999999998" magenta="1" yellow="1" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jQw-hf-Vxx" firstAttribute="centerY" secondItem="sVO-1H-e5F" secondAttribute="centerY" id="4Xa-JC-YY0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jQw-hf-Vxx" secondAttribute="trailing" id="5Qm-iU-6Ts"/>
+                                                <constraint firstItem="T1H-BC-sdj" firstAttribute="leading" secondItem="sVO-1H-e5F" secondAttribute="leadingMargin" constant="-8" id="6Eg-MK-c7X"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="T1H-BC-sdj" secondAttribute="trailing" constant="-8" id="Pjy-HV-qX2"/>
+                                                <constraint firstItem="T1H-BC-sdj" firstAttribute="centerX" secondItem="sVO-1H-e5F" secondAttribute="centerX" id="bET-pW-Dds"/>
+                                                <constraint firstItem="T1H-BC-sdj" firstAttribute="centerY" secondItem="sVO-1H-e5F" secondAttribute="centerY" id="uvU-Sh-dmV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkBox" destination="jQw-hf-Vxx" id="mYE-E2-M9h"/>
+                                            <outlet property="textField" destination="T1H-BC-sdj" id="qyl-wQ-QgL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationCell" id="EJX-aC-RkY" customClass="AddEventTableViewCell">
+                                        <rect key="frame" x="0.0" y="678" width="375" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EJX-aC-RkY" id="wbL-5e-aoz">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Placeholder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="adg-Be-to9">
+                                                    <rect key="frame" x="0.0" y="25.5" width="375" height="24"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                    <connections>
+                                                        <action selector="textFieldDoneEditing:" destination="EJX-aC-RkY" eventType="editingDidEnd" id="2In-YW-fb8"/>
+                                                    </connections>
+                                                </textField>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6Z-7k-XcP" customClass="BEMCheckBox">
+                                                    <rect key="frame" x="337" y="22" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                            <color key="value" cyan="0.059999999999999998" magenta="1" yellow="1" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="q6Z-7k-XcP" secondAttribute="trailing" id="3uM-fM-Xh3"/>
+                                                <constraint firstItem="q6Z-7k-XcP" firstAttribute="centerY" secondItem="wbL-5e-aoz" secondAttribute="centerY" id="Ggl-2Q-7tk"/>
+                                                <constraint firstItem="adg-Be-to9" firstAttribute="centerX" secondItem="wbL-5e-aoz" secondAttribute="centerX" id="Xk9-Pf-N49"/>
+                                                <constraint firstItem="adg-Be-to9" firstAttribute="centerY" secondItem="wbL-5e-aoz" secondAttribute="centerY" id="Ykr-mb-NVy"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="adg-Be-to9" secondAttribute="trailing" constant="-8" id="cnt-09-Y7B"/>
+                                                <constraint firstItem="adg-Be-to9" firstAttribute="leading" secondItem="wbL-5e-aoz" secondAttribute="leadingMargin" constant="-8" id="rYP-4u-PgL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkBox" destination="q6Z-7k-XcP" id="IkL-VW-a9D"/>
+                                            <outlet property="textField" destination="adg-Be-to9" id="fn8-7M-DGJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PriceCell" id="wgP-mf-pKK" customClass="AddEventTableViewCell">
+                                        <rect key="frame" x="0.0" y="753" width="375" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wgP-mf-pKK" id="tMB-8Z-tgu">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Placeholder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJf-gX-eXa">
+                                                    <rect key="frame" x="0.0" y="25.5" width="375" height="24"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                    <connections>
+                                                        <action selector="textFieldDoneEditing:" destination="wgP-mf-pKK" eventType="editingDidEnd" id="zuq-Hb-EPq"/>
+                                                    </connections>
+                                                </textField>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Rm-IO-pcb" customClass="BEMCheckBox">
+                                                    <rect key="frame" x="337" y="22" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                            <color key="value" cyan="0.059999999999999998" magenta="1" yellow="1" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7Rm-IO-pcb" firstAttribute="centerY" secondItem="tMB-8Z-tgu" secondAttribute="centerY" id="9G8-1s-aDF"/>
+                                                <constraint firstItem="CJf-gX-eXa" firstAttribute="centerX" secondItem="tMB-8Z-tgu" secondAttribute="centerX" id="aze-tu-u2S"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CJf-gX-eXa" secondAttribute="trailing" constant="-8" id="d7a-VC-clb"/>
+                                                <constraint firstItem="CJf-gX-eXa" firstAttribute="centerY" secondItem="tMB-8Z-tgu" secondAttribute="centerY" id="ekI-o8-NCg"/>
+                                                <constraint firstItem="CJf-gX-eXa" firstAttribute="leading" secondItem="tMB-8Z-tgu" secondAttribute="leadingMargin" constant="-8" id="nJi-mV-IxE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7Rm-IO-pcb" secondAttribute="trailing" id="uoX-nB-Hax"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkBox" destination="7Rm-IO-pcb" id="4qJ-s4-8fp"/>
+                                            <outlet property="textField" destination="CJf-gX-eXa" id="9g2-U8-kXs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TagCell" id="VFN-Xw-Vjs" customClass="AddEventTableViewCell">
+                                        <rect key="frame" x="0.0" y="828" width="375" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VFN-Xw-Vjs" id="jSX-56-g0a">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Placeholder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="52K-Dj-YnY">
+                                                    <rect key="frame" x="0.0" y="25.5" width="375" height="24"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                    <connections>
+                                                        <action selector="textFieldDoneEditing:" destination="VFN-Xw-Vjs" eventType="editingDidEnd" id="2o7-HU-OGs"/>
+                                                    </connections>
+                                                </textField>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDU-qT-RCn" customClass="BEMCheckBox">
+                                                    <rect key="frame" x="337" y="22" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                            <color key="value" red="0.032595866479999999" green="0.71553502319999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                            <color key="value" cyan="0.059999999999999998" magenta="1" yellow="1" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hDU-qT-RCn" secondAttribute="trailing" id="4Ey-Wi-7ue"/>
+                                                <constraint firstItem="52K-Dj-YnY" firstAttribute="centerX" secondItem="jSX-56-g0a" secondAttribute="centerX" id="CrD-XI-jT2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="52K-Dj-YnY" secondAttribute="trailing" constant="-8" id="Jc6-fS-4KF"/>
+                                                <constraint firstItem="52K-Dj-YnY" firstAttribute="centerY" secondItem="jSX-56-g0a" secondAttribute="centerY" id="Kyr-vR-Vpl"/>
+                                                <constraint firstItem="hDU-qT-RCn" firstAttribute="centerY" secondItem="jSX-56-g0a" secondAttribute="centerY" id="V9Q-tz-dBu"/>
+                                                <constraint firstItem="52K-Dj-YnY" firstAttribute="leading" secondItem="jSX-56-g0a" secondAttribute="leadingMargin" constant="-8" id="jlz-cO-zVl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkBox" destination="hDU-qT-RCn" id="NML-10-pLF"/>
+                                            <outlet property="textField" destination="52K-Dj-YnY" id="mHB-YN-dJs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vN5-Mk-3By" firstAttribute="width" secondItem="knM-5H-cQ6" secondAttribute="width" id="4Iz-zW-Y6J"/>
                             <constraint firstAttribute="leadingMargin" secondItem="W3p-kX-rIK" secondAttribute="leading" id="8cx-j7-okg"/>
                             <constraint firstItem="gpc-wQ-1aK" firstAttribute="width" secondItem="knM-5H-cQ6" secondAttribute="width" id="DfM-2K-PYz"/>
-                            <constraint firstItem="vN5-Mk-3By" firstAttribute="top" secondItem="gpc-wQ-1aK" secondAttribute="bottom" id="Gaa-nn-7Fv"/>
+                            <constraint firstItem="FbE-DH-x9w" firstAttribute="top" secondItem="gpc-wQ-1aK" secondAttribute="bottom" id="Fs6-QA-Y2b"/>
                             <constraint firstItem="gpc-wQ-1aK" firstAttribute="centerX" secondItem="knM-5H-cQ6" secondAttribute="centerX" id="OzV-TO-bmb"/>
+                            <constraint firstItem="W3p-kX-rIK" firstAttribute="top" secondItem="FbE-DH-x9w" secondAttribute="bottom" constant="5" id="Pgs-YQ-tKo"/>
                             <constraint firstItem="o6h-04-my1" firstAttribute="top" secondItem="qos-Ga-GBm" secondAttribute="bottom" id="Sxr-rf-pil"/>
                             <constraint firstItem="o6h-04-my1" firstAttribute="centerX" secondItem="knM-5H-cQ6" secondAttribute="centerX" id="UU4-j4-igF"/>
                             <constraint firstItem="gKr-H2-Etq" firstAttribute="width" secondItem="knM-5H-cQ6" secondAttribute="width" id="adK-L4-JlH"/>
-                            <constraint firstItem="4OQ-PY-cjc" firstAttribute="top" secondItem="vN5-Mk-3By" secondAttribute="bottom" constant="69" id="ebq-LJ-5uo"/>
-                            <constraint firstItem="vN5-Mk-3By" firstAttribute="centerX" secondItem="knM-5H-cQ6" secondAttribute="centerX" id="hG2-q0-0rf"/>
+                            <constraint firstItem="FbE-DH-x9w" firstAttribute="width" secondItem="knM-5H-cQ6" secondAttribute="width" id="cRS-eq-F2j"/>
                             <constraint firstItem="gpc-wQ-1aK" firstAttribute="top" secondItem="o6h-04-my1" secondAttribute="bottom" id="iN5-FR-dQS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W3p-kX-rIK" secondAttribute="trailing" id="kMK-aY-4gD"/>
                             <constraint firstItem="gKr-H2-Etq" firstAttribute="top" secondItem="qos-Ga-GBm" secondAttribute="bottom" id="qEv-ZX-VQw"/>
                             <constraint firstItem="4OQ-PY-cjc" firstAttribute="top" secondItem="W3p-kX-rIK" secondAttribute="bottom" constant="8" id="sD0-ga-5b7"/>
                             <constraint firstItem="o6h-04-my1" firstAttribute="width" secondItem="knM-5H-cQ6" secondAttribute="width" id="sHj-a7-QP6"/>
                             <constraint firstItem="gKr-H2-Etq" firstAttribute="centerX" secondItem="knM-5H-cQ6" secondAttribute="centerX" id="sTM-e8-z47"/>
+                            <constraint firstItem="FbE-DH-x9w" firstAttribute="centerX" secondItem="knM-5H-cQ6" secondAttribute="centerX" id="sxs-wk-Oia"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Event" id="b3G-i9-9Kr">
@@ -101,6 +456,7 @@
                     <connections>
                         <outlet property="addNewEventButton" destination="W3p-kX-rIK" id="6Md-SW-75X"/>
                         <outlet property="addNewPhotoButton" destination="gKr-H2-Etq" id="5qD-wE-klv"/>
+                        <outlet property="eventCreationTableView" destination="FbE-DH-x9w" id="8Bu-kQ-Pzv"/>
                         <outlet property="imageView" destination="o6h-04-my1" id="Vpa-4K-pg3"/>
                     </connections>
                 </viewController>

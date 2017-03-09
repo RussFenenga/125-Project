@@ -9,17 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GoogleToolboxForMac.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-EventHype.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Protobuf.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -38,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>6A3BD1008DE6857641B41ED95D79E505</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CE07F504F482F033858DCB1E8A276013</key>
 		<dict>
 			<key>primary</key>
 			<true/>
