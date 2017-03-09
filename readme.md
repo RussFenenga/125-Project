@@ -63,6 +63,8 @@ Git repository ( [https://github.com/ArturGrigio/125-Project](https://github.com
      - `longitude`
      - `category`
      - `price`
+     - `url`
+     - `logo`
      - `start_date`
      - `start_time`
      - `end_date`

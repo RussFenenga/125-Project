@@ -18,6 +18,8 @@
      - `longitude`
      - `category`
      - `price`
+     - `url`
+     - `logo`
      - `start_date`
      - `start_time`
      - `end_date`
