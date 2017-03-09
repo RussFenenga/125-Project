@@ -55,7 +55,7 @@ class EventbriteController extends Controller
 					    'logo' => ($event->logo) ? $event->logo->url : "http://EventHype.me/img/eventimage.png",
 					    'category' => ($event->category_id) ? $categories[$event->category_id] : 'Other',
 					    'url' => $event->url,
-					    'source' => "EventBrite",
+					    'source' => "http://EventBrite.com",
 					    'price' => $event->is_free ? "FREE" : $price[rand(0, 3)],
 					    'start_date' => $start->toDateString(),
 					    'start_time' => $start->toTimeString(),

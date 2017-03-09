@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-    	$schedule->call(EventbriteController::updateIndex())->daily();
+	    $schedule->call('App\Http\Controllers\EventbriteController@updateIndex')->daily();
         // $schedule->command('inspire')
         //          ->hourly();
     }
