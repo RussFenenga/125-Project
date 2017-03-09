@@ -2,57 +2,74 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use Illuminate\Http\Request;
-use League\Flysystem\Exception;
-use Stevenmaguire\OAuth2\Client\Provider\Eventbrite as Provider;
+use GuzzleHttp\Client;
+use Carbon\Carbon;
 
 class EventbriteController extends Controller
 {
-    public function authenticate() {
-	    $provider = new Provider([
-		    'clientId'          => 'ULZDKWPFXIAIHRTJG2',
-		    'clientSecret'      => 'FSXJPOYCZM3TLEJ73X5DCDJCFE3OIB4NZIYHQNAMHFGW3P3OLG',
-		    'redirectUri'       => 'eventhype.me/eventbrite'
+    public static function updateIndex() {
+    	$page = 1;
+
+	    $price = [9.95, 14.99, 25, 28.95];
+	    $categories = [];
+	    $catClient = new Client([
+		    // Base URI is used with relative requests
+		    'base_uri' => 'https://www.eventbriteapi.com/v3/categories'
 	    ]);
-
-	    if (!isset($_GET['code'])) {
-
-		    // If we don't have an authorization code then get one
-		    $authUrl = $provider->getAuthorizationUrl();
-		    $_SESSION['oauth2state'] = $provider->getState();
-		    header('Location: '.$authUrl);
-		    exit;
-
-		// Check given state against previously stored one to mitigate CSRF attack
-	    } elseif (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
-
-		    unset($_SESSION['oauth2state']);
-		    exit('Invalid state');
-
-	    } else {
-
-		    // Try to get an access token (using the authorization code grant)
-		    $token = $provider->getAccessToken('authorization_code', [
-			    'code' => $_GET['code']
-		    ]);
-
-		    // Optional: Now you have a token you can look up a users profile data
-		    try {
-
-			    // We got an access token, let's now get the user's details
-			    $user = $provider->getResourceOwner($token);
-
-			    // Use these details to create a new profile
-			    printf('Hello %s!', $user->getUserId());
-
-		    } catch (Exception $e) {
-
-			    // Failed to get user details
-			    exit('Oh dear...');
-		    }
-
-		    // Use this to interact with an API on the users behalf
-		    echo $token->getToken();
+	    $response = $catClient->request('GET',
+		    '?token=DEHPGRHYQQSLQDVHP3Y3'
+	    );
+	    $data = json_decode($response->getBody());
+	    foreach($data->categories as $category) {
+			$categories[$category->id] = $category->name;
 	    }
+
+	    while($page) {
+		    $client = new Client([
+			    // Base URI is used with relative requests
+			    'base_uri' => 'https://www.eventbriteapi.com/v3/events/search'
+		    ]);
+		    $response = $client->request('GET',
+			    '?token=DEHPGRHYQQSLQDVHP3Y3&page='.$page.
+			    '&location.viewport.northeast.latitude=33.670568'.
+			    '&location.viewport.northeast.longitude=-117.800069'.
+		        '&location.viewport.southwest.latitude=33.602757'.
+		        '&location.viewport.southwest.longitude=-117.908731'.
+		        '&token=DEHPGRHYQQSLQDVHP3Y3'
+		    );
+		    $data = json_decode($response->getBody());
+
+		    foreach($data->events as $event) {
+		    	print_r($event);
+		    	if(Event::where('id', $event->id)->get()->isEmpty()) {
+				    $start = Carbon::parse($event->start->local);
+				    $end = Carbon::parse($event->end->local);
+				    $event = Event::create(array(
+					    'id' => $event->id,
+					    'event_name' => $event->name->text,
+					    'event_description' => substr($event->description->text,0, 4996),
+					    'event_address' => "View Description",
+					    'latitude' => $data->location->latitude,
+					    'longitude' => $data->location->longitude,
+					    'logo' => ($event->logo) ? $event->logo->url : "http://EventHype.me/img/eventimage.png",
+					    'category' => ($event->category_id) ? $categories[$event->category_id] : 'Other',
+					    'url' => $event->url,
+					    'source' => "EventBrite",
+					    'price' => $event->is_free ? "FREE" : $price[rand(0, 3)],
+					    'start_date' => $start->toDateString(),
+					    'start_time' => $start->toTimeString(),
+					    'end_date' => $end->toDateString(),
+					    'end_time' => $end->toTimeString()
+				    ));
+			    }
+		    }
+		    if($data->pagination->page_count == $page) {
+		    	$page = null;
+		    } else {
+		    	$page = $data->pagination->page_number + 1;
+		    }
+		}
     }
 }
