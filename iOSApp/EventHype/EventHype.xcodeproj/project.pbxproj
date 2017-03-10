@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FBAA2411E72614E00108330 /* EventContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FBAA2401E72614E00108330 /* EventContent.storyboard */; };
+		2FBAA2441E72615B00108330 /* EventContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAA2431E72615B00108330 /* EventContentTableViewController.m */; };
 		4C91D1DE461CE740D2329451 /* libPods-EventHype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B890ADD89E9ADDD74260E9F /* libPods-EventHype.a */; };
 		893522CE1E6F4F760008CF2C /* AddEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 893522CC1E6F4F760008CF2C /* AddEvent.storyboard */; };
 		893522D01E6F4FDE0008CF2C /* EventMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 893522CF1E6F4FDE0008CF2C /* EventMap.storyboard */; };
@@ -25,6 +27,9 @@
 
 /* Begin PBXFileReference section */
 		2E4E5592F4835BC15212812A /* Pods-EventHype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventHype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventHype/Pods-EventHype.debug.xcconfig"; sourceTree = "<group>"; };
+		2FBAA2401E72614E00108330 /* EventContent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventContent.storyboard; sourceTree = "<group>"; };
+		2FBAA2421E72615B00108330 /* EventContentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventContentTableViewController.h; sourceTree = "<group>"; };
+		2FBAA2431E72615B00108330 /* EventContentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventContentTableViewController.m; sourceTree = "<group>"; };
 		3B890ADD89E9ADDD74260E9F /* libPods-EventHype.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EventHype.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		893522CD1E6F4F760008CF2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AddEvent.storyboard; sourceTree = "<group>"; };
 		893522CF1E6F4FDE0008CF2C /* EventMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventMap.storyboard; sourceTree = "<group>"; };
@@ -96,8 +101,11 @@
 				89FC89091E6F357700E18C3C /* EventHype.entitlements */,
 				893885991E6CDDBB00B70D79 /* ViewController.h */,
 				8938859A1E6CDDBB00B70D79 /* ViewController.m */,
+				2FBAA2421E72615B00108330 /* EventContentTableViewController.h */,
+				2FBAA2431E72615B00108330 /* EventContentTableViewController.m */,
 				8938859C1E6CDDBB00B70D79 /* Main.storyboard */,
 				893522CF1E6F4FDE0008CF2C /* EventMap.storyboard */,
+				2FBAA2401E72614E00108330 /* EventContent.storyboard */,
 				8938859F1E6CDDBB00B70D79 /* Assets.xcassets */,
 				89381E721E6FCB1B0018D2B1 /* logo.png */,
 				893885A11E6CDDBB00B70D79 /* LaunchScreen.storyboard */,
@@ -214,6 +222,7 @@
 				89381E731E6FCB1B0018D2B1 /* logo.png in Resources */,
 				893885A01E6CDDBB00B70D79 /* Assets.xcassets in Resources */,
 				8938859E1E6CDDBB00B70D79 /* Main.storyboard in Resources */,
+				2FBAA2411E72614E00108330 /* EventContent.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +283,7 @@
 			files = (
 				899486FE1E71CF5F00F1DCC4 /* AddEventExpandableTableViewCell.m in Sources */,
 				8938859B1E6CDDBB00B70D79 /* ViewController.m in Sources */,
+				2FBAA2441E72615B00108330 /* EventContentTableViewController.m in Sources */,
 				893522D31E6F51C30008CF2C /* AddEventViewController.m in Sources */,
 				893885981E6CDDBB00B70D79 /* AppDelegate.m in Sources */,
 				893885951E6CDDBB00B70D79 /* main.m in Sources */,
