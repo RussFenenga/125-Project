@@ -8,12 +8,16 @@
 
 #import "ViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "Event.h"
+#import "EventDataLoader.h"
+
 @import MapKit;
 
-@interface ViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
+@interface ViewController () <MKMapViewDelegate, CLLocationManagerDelegate, EventLoadingDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *eventMapView;
 @property CLLocationManager *locationManager;
+@property EventDataLoader *dataLoader;
 
 @end
 
@@ -25,6 +29,8 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.eventMapView.delegate = self;
+    self.dataLoader = [[EventDataLoader alloc] init];
+    self.dataLoader.delegate = self;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
@@ -34,6 +40,34 @@
     [self.locationManager startUpdatingLocation];
     
     self.eventMapView.userTrackingMode = MKUserTrackingModeFollow;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.dataLoader loadAllEvents];
+}
+
+#pragma mark EventLoadingDelegateMethods
+
+-(void)sendEventData:(NSArray *)array {
+    NSMutableArray *allPins = [[NSMutableArray alloc] init];
+    for(Event *event in array){
+        // Define pin location
+        CLLocationCoordinate2D pinlocation;
+        
+        CLLocationDegrees eventLat = [event.latitude doubleValue];
+        CLLocationDegrees eventLong = [event.longitude doubleValue];
+        
+        pinlocation.latitude = eventLat ;//set latitude of selected coordinate ;
+        pinlocation.longitude = eventLong ;//set longitude of selected coordinate;
+        
+        // Create Annotation point
+        MKPointAnnotation *Pin = [[MKPointAnnotation alloc]init];
+        Pin.coordinate = pinlocation;
+        Pin.title = event.eventName;
+        [allPins addObject:Pin];
+    }
+    [self.eventMapView addAnnotations:allPins];
 }
 
 

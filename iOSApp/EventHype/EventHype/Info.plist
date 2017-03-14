@@ -38,6 +38,11 @@
 	<string>To choose an image that describes your event.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>To take an image that describes your event.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
