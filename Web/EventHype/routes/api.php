@@ -15,3 +15,4 @@ use Illuminate\Http\Request;
 
 Route::match(['GET', 'POST'], '/events', 'APIController@getAll');
 Route::match(['GET', 'POST'], '/event', 'APIController@getEvent');
+Route::match(['GET', 'POST'], '/event/insert', 'APIController@insert');
