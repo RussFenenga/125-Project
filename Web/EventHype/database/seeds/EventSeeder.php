@@ -14,9 +14,9 @@ class EventSeeder extends Seeder
     	$tags = ['club', 'restaurant', 'school'];
 	    $faker = Faker\Factory::create();
 
-	    for($i = 0; $i<50; $i++) {
+	    for($i = 0; $i<20; $i++) {
 		    $event = \App\Event::create(array(
-			    'event_name' => $faker->word(),
+			    'event_name' => "Mocked Event on EventHype.me",
 			    'event_description' => $faker->sentence(),
 			    'event_address' => $faker->address(),
 			    'latitude' => $faker->latitude($min = 33.54, $max = 33.74),
@@ -33,5 +33,7 @@ class EventSeeder extends Seeder
 			    'end_time'=> $faker->time()
 		    ));
 	    }
+
+	    \App\Http\Controllers\EventbriteController::updateIndex();
     }
 }
