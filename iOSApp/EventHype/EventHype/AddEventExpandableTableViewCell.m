@@ -27,6 +27,7 @@
 
 - (IBAction)datePickerValueChanged:(UIDatePicker *)sender {
     [self setTime];
+    [self.delegate expandableCellFinishedEditingAndIsFilled:YES withData:[self.datePicker.date description] fromIndex:self.index];
 }
 
 - (void)setTime{
@@ -41,5 +42,6 @@
     NSString *timetofill = [outputFormatter stringFromDate:self.datePicker.date];
     
     self.DateLabel.text = [[formatter stringFromDate:todaysDate] stringByAppendingString: timetofill];
+    
 }
 @end

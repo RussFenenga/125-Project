@@ -21,5 +21,6 @@
 @property(nonatomic,assign)id delegate;
 
 -(void)loadAllEvents;
+-(void)sendEvent:(Event*) eventToSend;
 
 @end

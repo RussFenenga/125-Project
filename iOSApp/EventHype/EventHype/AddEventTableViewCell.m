@@ -35,8 +35,10 @@
 - (IBAction)textFieldDoneEditing:(UITextField *)sender {
     if([self.textField.text  isEqual: @""]){
         [self.checkBox setOn:NO animated:YES];
+        [self.delegate cellFinishedEditingAndIsFilled:NO withData:@"" fromIndex:self.index];
     } else if(![self.checkBox on]) {
         [self.checkBox setOn:YES animated:YES];
+        [self.delegate cellFinishedEditingAndIsFilled:YES withData:self.textField.text fromIndex:self.index];
     }
 }
 @end

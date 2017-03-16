@@ -65,6 +65,7 @@
         MKPointAnnotation *Pin = [[MKPointAnnotation alloc]init];
         Pin.coordinate = pinlocation;
         Pin.title = event.eventName;
+        
         [allPins addObject:Pin];
     }
     [self.eventMapView addAnnotations:allPins];
