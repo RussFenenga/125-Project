@@ -27,7 +27,7 @@ class APIController extends Controller
     }
 
     public function insert(Request $request) {
-    	Event::create(array(
+    	$event = Event::create(array(
     		'event_name'=>$request->has('event_name') ? $request->get('event_name') : '',
 		    'event_description'=> $request->has('event_description') ? $request->get('event_description') : '',
 		    'event_address'=> $request->has('event_address') ? $request->get('event_address') : '',
@@ -46,7 +46,8 @@ class APIController extends Controller
 
 	    return json_encode(array(
 	    	'status'=>200,
-		    'response'=>'Event Saved.'
+		    'response'=>'Event Saved.',
+		    'data' => $event
 	    ));
     }
 }
