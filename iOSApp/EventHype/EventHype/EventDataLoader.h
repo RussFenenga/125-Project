@@ -12,6 +12,7 @@
 @protocol EventLoadingDelegate <NSObject>
 
 -(void)sendEventData:(NSArray *)array;
+-(void)eventSavedToDatabase:(Event *)event;
 
 @end
 
@@ -19,6 +20,8 @@
 @interface EventDataLoader : NSObject
 
 @property(nonatomic,assign)id delegate;
+
++ (id)sharedManager;
 
 -(void)loadAllEvents;
 -(void)sendEvent:(Event*) eventToSend;

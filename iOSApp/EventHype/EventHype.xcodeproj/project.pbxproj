@@ -208,7 +208,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -438,9 +438,10 @@
 			baseConfigurationReference = 2E4E5592F4835BC15212812A /* Pods-EventHype.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = EventHype/EventHype.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = HY5NYNN4D3;
 				INFOPLIST_FILE = EventHype/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RussellFenenga.EventHype;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -452,9 +453,10 @@
 			baseConfigurationReference = B78AAEA7E57C2DE1CF7E4416 /* Pods-EventHype.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = EventHype/EventHype.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = HY5NYNN4D3;
 				INFOPLIST_FILE = EventHype/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RussellFenenga.EventHype;
 				PRODUCT_NAME = "$(TARGET_NAME)";

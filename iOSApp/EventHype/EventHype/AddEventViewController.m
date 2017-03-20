@@ -55,9 +55,9 @@
     self.imagePicker.delegate = self;
     self.eventCreationTableView.dataSource = self;
     self.eventCreationTableView.delegate = self;
-    self.dataLoader = [[EventDataLoader alloc] init];
+    self.dataLoader = [EventDataLoader sharedManager];
     self.cellFilledCount = 0;
-    
+
     self.addNewEventButton.enabled = NO;
 }
 
@@ -106,8 +106,8 @@
     newEvent.startTime = last;
     
     NSRange rng2 = [self.EndDate rangeOfString:@" "];
-    NSString *first2 = [self.EndDate substringToIndex:rng.location];
-    NSString *last2 = [self.EndDate substringFromIndex:rng.location + 1];
+    NSString *first2 = [self.EndDate substringToIndex:rng2.location];
+    NSString *last2 = [self.EndDate substringFromIndex:rng2.location + 1];
 
     
     

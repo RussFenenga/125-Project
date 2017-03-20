@@ -29,7 +29,7 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.eventMapView.delegate = self;
-    self.dataLoader = [[EventDataLoader alloc] init];
+    self.dataLoader = [EventDataLoader sharedManager];
     self.dataLoader.delegate = self;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -47,7 +47,25 @@
     [self.dataLoader loadAllEvents];
 }
 
+
 #pragma mark EventLoadingDelegateMethods
+
+-(void)eventSavedToDatabase:(Event *)event{
+    CLLocationCoordinate2D pinlocation;
+    
+    CLLocationDegrees eventLat = [event.latitude doubleValue];
+    CLLocationDegrees eventLong = [event.longitude doubleValue];
+    
+    pinlocation.latitude = eventLat ;//set latitude of selected coordinate ;
+    pinlocation.longitude = eventLong ;//set longitude of selected coordinate;
+    
+    // Create Annotation point
+    MKPointAnnotation *Pin = [[MKPointAnnotation alloc]init];
+    Pin.coordinate = pinlocation;
+    Pin.title = event.eventName;
+    
+    [self.eventMapView addAnnotation:Pin];
+}
 
 -(void)sendEventData:(NSArray *)array {
     NSMutableArray *allPins = [[NSMutableArray alloc] init];

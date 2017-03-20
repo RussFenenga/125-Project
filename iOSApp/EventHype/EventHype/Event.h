@@ -14,7 +14,7 @@
 -(id)initWithParameters:(NSDictionary *)parameters;
 
 
-@property (nonatomic) long idNumber;
+@property (nonatomic) int idNumber;
 @property (nonatomic,strong) NSString *eventName;
 @property (nonatomic,strong) NSString *eventDescription;
 @property (nonatomic,strong) NSString *eventAddress;
