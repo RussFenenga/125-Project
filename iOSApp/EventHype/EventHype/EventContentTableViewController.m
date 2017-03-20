@@ -43,6 +43,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 50;
+    self.title = @"Detail";
     
 }
 
@@ -121,7 +122,7 @@
         cell.userInteractionEnabled = NO;
         UIImageView *pinImage = (UIImageView *)[cell viewWithTag:6];
         UILabel *addressLabel = (UILabel *)[cell viewWithTag:7];
-        NSString *pinAddressString = @"pinImage";
+        NSString *pinAddressString = @"pin";
         NSString *eventAddressString = self.myEvent.eventAddress;
         addressLabel.text = eventAddressString;
         addressLabel.font = [addressLabel.font fontWithSize:12];

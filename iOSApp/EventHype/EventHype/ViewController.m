@@ -12,6 +12,7 @@
 #import "EventDataLoader.h"
 #import "EventAnnotation.h"
 #import "EventContentTableViewController.h"
+#import "EventSearchController.h"
 
 @import MapKit;
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *eventMapView;
 @property CLLocationManager *locationManager;
 @property EventDataLoader *dataLoader;
+@property NSMutableArray *allEvents;
 
 @end
 
@@ -36,6 +38,8 @@
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
+    self.allEvents = [[NSMutableArray alloc] init];
+    
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
         [self.locationManager requestWhenInUseAuthorization];
     
@@ -47,6 +51,23 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.dataLoader loadAllEvents];
+}
+- (IBAction)searchButtonTapped:(UIBarButtonItem *)sender {
+    UIStoryboard *secondStoryBoard = [UIStoryboard storyboardWithName:@"SearchForEvents" bundle:nil];
+    
+    // Load the initial view controller from the storyboard.
+    // Set this by selecting 'Is Initial View Controller' on the appropriate view controller in the storyboard.
+     EventSearchController *searchController = [secondStoryBoard instantiateInitialViewController];
+    NSArray *allEventsForSearching =  [[NSMutableArray alloc] initWithArray:[self.allEvents copy]];
+    searchController.allEventsBeingSearched = allEventsForSearching;
+    searchController.filteredEvents = [allEventsForSearching copy];
+    
+    UIStoryboardSegue *segue = [UIStoryboardSegue segueWithIdentifier:@"ToSearch" source:self destination:searchController performHandler:^(void) {
+        //view transition/animation
+        [self.navigationController pushViewController:searchController animated:YES];
+    }];
+    [self prepareForSegue:segue sender:self];
+    [segue perform];
 }
 
 #pragma mark MKMapViewDelegate
@@ -96,17 +117,18 @@
 
 -(void)eventSavedToDatabase:(Event *)event{
     EventAnnotation *eventAnnotation = [[EventAnnotation alloc]initWithEvent:event];
-    
+    [self.allEvents addObject:event];
     [self.eventMapView addAnnotation:eventAnnotation];
 }
 
 -(void)sendEventData:(NSArray *)array {
     NSMutableArray *allPins = [[NSMutableArray alloc] init];
+    [self.allEvents removeAllObjects]; //avoids duplicate events
     for(Event *event in array){
         
         EventAnnotation *eventAnnotation = [[EventAnnotation alloc]initWithEvent:event];
-        
         [allPins addObject:eventAnnotation];
+        [self.allEvents addObject:event];
     }
     [self.eventMapView addAnnotations:allPins];
 }
