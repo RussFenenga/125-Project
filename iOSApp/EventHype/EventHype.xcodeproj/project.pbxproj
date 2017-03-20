@@ -25,6 +25,7 @@
 		89A24BE51E7758C900676B9A /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A24BE41E7758C900676B9A /* Event.m */; };
 		89B772261E70A9A400446F43 /* AddEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B772251E70A9A400446F43 /* AddEventTableViewCell.m */; };
 		89C5B9451E78872300B809D3 /* Irvine.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 89C5B9441E78872300B809D3 /* Irvine.gpx */; };
+		89F6947E1E7FC1C2002641FA /* EventAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F6947D1E7FC1C2002641FA /* EventAnnotation.m */; };
 		89FC890D1E6F42B700E18C3C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89FC890C1E6F42B700E18C3C /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,8 @@
 		89B772241E70A9A400446F43 /* AddEventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventTableViewCell.h; sourceTree = "<group>"; };
 		89B772251E70A9A400446F43 /* AddEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventTableViewCell.m; sourceTree = "<group>"; };
 		89C5B9441E78872300B809D3 /* Irvine.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Irvine.gpx; sourceTree = "<group>"; };
+		89F6947C1E7FC1C2002641FA /* EventAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAnnotation.h; sourceTree = "<group>"; };
+		89F6947D1E7FC1C2002641FA /* EventAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAnnotation.m; sourceTree = "<group>"; };
 		89FC89091E6F357700E18C3C /* EventHype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EventHype.entitlements; sourceTree = "<group>"; };
 		89FC890C1E6F42B700E18C3C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B78AAEA7E57C2DE1CF7E4416 /* Pods-EventHype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventHype.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventHype/Pods-EventHype.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				89A24BE31E7758C900676B9A /* Event.h */,
+				89F6947C1E7FC1C2002641FA /* EventAnnotation.h */,
+				89F6947D1E7FC1C2002641FA /* EventAnnotation.m */,
 				89A24BE41E7758C900676B9A /* Event.m */,
 				89A24BE01E77552000676B9A /* EventDataLoader.h */,
 				89A24BE11E77552000676B9A /* EventDataLoader.m */,
@@ -304,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				899486FE1E71CF5F00F1DCC4 /* AddEventExpandableTableViewCell.m in Sources */,
+				89F6947E1E7FC1C2002641FA /* EventAnnotation.m in Sources */,
 				8938859B1E6CDDBB00B70D79 /* ViewController.m in Sources */,
 				2FBAA2441E72615B00108330 /* EventContentTableViewController.m in Sources */,
 				89A24BE51E7758C900676B9A /* Event.m in Sources */,

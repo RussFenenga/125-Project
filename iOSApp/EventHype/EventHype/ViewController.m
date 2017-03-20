@@ -10,6 +10,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import "Event.h"
 #import "EventDataLoader.h"
+#import "EventAnnotation.h"
+#import "EventContentTableViewController.h"
 
 @import MapKit;
 
@@ -47,44 +49,64 @@
     [self.dataLoader loadAllEvents];
 }
 
+#pragma mark MKMapViewDelegate
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    
+    if([annotation isKindOfClass:[EventAnnotation class]]){
+        EventAnnotation *myEventAnnotation = (EventAnnotation *)annotation;
+        MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"EventAnnotation"];
+        if(annotationView == nil)
+            annotationView = myEventAnnotation.annotationView;
+        else
+            annotationView.annotation = annotation;
+        
+        return annotationView;
+        
+    } else {
+        
+        return nil;
+    }
+}
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    EventAnnotation *eventAnnotation = (EventAnnotation *)view.annotation;
+    Event *event = eventAnnotation.event;
+    
+    // Get the storyboard named secondStoryBoard from the main bundle:
+    UIStoryboard *secondStoryBoard = [UIStoryboard storyboardWithName:@"EventContent" bundle:nil];
+    
+    // Load the initial view controller from the storyboard.
+    // Set this by selecting 'Is Initial View Controller' on the appropriate view controller in the storyboard.
+    EventContentTableViewController *eventContent = [secondStoryBoard instantiateInitialViewController];
+    
+    eventContent.myEvent = event;
+    
+    UIStoryboardSegue *segue = [UIStoryboardSegue segueWithIdentifier:@"ToContent" source:self destination:eventContent performHandler:^(void) {
+        //view transition/animation
+        [self.navigationController pushViewController:eventContent animated:YES];
+    }];
+    [self prepareForSegue:segue sender:self];
+    [segue perform];
+}
+
+
 
 #pragma mark EventLoadingDelegateMethods
 
 -(void)eventSavedToDatabase:(Event *)event{
-    CLLocationCoordinate2D pinlocation;
+    EventAnnotation *eventAnnotation = [[EventAnnotation alloc]initWithEvent:event];
     
-    CLLocationDegrees eventLat = [event.latitude doubleValue];
-    CLLocationDegrees eventLong = [event.longitude doubleValue];
-    
-    pinlocation.latitude = eventLat ;//set latitude of selected coordinate ;
-    pinlocation.longitude = eventLong ;//set longitude of selected coordinate;
-    
-    // Create Annotation point
-    MKPointAnnotation *Pin = [[MKPointAnnotation alloc]init];
-    Pin.coordinate = pinlocation;
-    Pin.title = event.eventName;
-    
-    [self.eventMapView addAnnotation:Pin];
+    [self.eventMapView addAnnotation:eventAnnotation];
 }
 
 -(void)sendEventData:(NSArray *)array {
     NSMutableArray *allPins = [[NSMutableArray alloc] init];
     for(Event *event in array){
-        // Define pin location
-        CLLocationCoordinate2D pinlocation;
         
-        CLLocationDegrees eventLat = [event.latitude doubleValue];
-        CLLocationDegrees eventLong = [event.longitude doubleValue];
+        EventAnnotation *eventAnnotation = [[EventAnnotation alloc]initWithEvent:event];
         
-        pinlocation.latitude = eventLat ;//set latitude of selected coordinate ;
-        pinlocation.longitude = eventLong ;//set longitude of selected coordinate;
-        
-        // Create Annotation point
-        MKPointAnnotation *Pin = [[MKPointAnnotation alloc]init];
-        Pin.coordinate = pinlocation;
-        Pin.title = event.eventName;
-        
-        [allPins addObject:Pin];
+        [allPins addObject:eventAnnotation];
     }
     [self.eventMapView addAnnotations:allPins];
 }

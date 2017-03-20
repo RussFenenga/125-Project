@@ -15,12 +15,13 @@
 
 @implementation Event
 
+
 //parameters is a dictionary containing
 - (id)initWithParameters: (NSDictionary *)parameters {
     
     self.dictOfKeysAndValues = parameters;
     
-    self.idNumber = [[parameters valueForKey:@"id"] integerValue];
+    self.idNumber = [[parameters valueForKey:@"id"] intValue];
     self.eventName = [parameters valueForKey:@"event_name"];
     self.eventDescription = [parameters valueForKey:@"event_description"];
     self.eventAddress = [parameters valueForKey:@"event_address"];

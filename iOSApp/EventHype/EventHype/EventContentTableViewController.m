@@ -7,6 +7,7 @@
 //
 
 #import "EventContentTableViewController.h"
+#import "EventAnnotation.h"
 #import <MapKit/MapKit.h>
 
 @interface EventContentTableViewController ()
@@ -82,7 +83,7 @@
         UILabel *hashTagLabel = (UILabel *)[cell viewWithTag:3];
         
         NSString *dateString = @"POSTED FEBRUARY 4, 2017";
-        NSString *hashTagString = @"#DESIGN";
+        NSString *hashTagString = [NSString stringWithFormat:@"#%@",self.myEvent.category];
         dateLabel.text = dateString;
         dateLabel.font = [dateLabel.font fontWithSize:14];
         hashTagLabel.text = hashTagString;
@@ -95,7 +96,7 @@
         UILabel *titleLabel = (UILabel *)[cell viewWithTag:4];
         titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         titleLabel.numberOfLines = 0;
-        NSString *eventTitle = @"How to create beautiful typography";
+        NSString *eventTitle = self.myEvent.eventName;
         titleLabel.text = eventTitle;
         titleLabel.font = [titleLabel.font fontWithSize:26];
         
@@ -110,7 +111,7 @@
         UILabel *contentLabel = (UILabel *)[cell viewWithTag:5];
         contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
         contentLabel.numberOfLines = 0;
-        NSString *eventContent = @"Ty­pog­ra­phy is the vi­sual com­po­nent of the writ­ten word. It is for the benefit of the reader , not the writer. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt elit in mi imperdiet, sed hendrerit nibh scelerisque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus ultricies velit non gravida hendrerit. Duis lobortis eget lacus sed mollis. Vulputate quam est viverra augue. Vestibulum tristique, nisi id dignissim egestas, dui orci bibendum libero, quis porta ante elit vitae elit. Proin placerat est ac sagittis malesuada. Aliquam sit amet dui at metus porta posuere ac non nulla. Cras ligula nisi, blandit vitae dui quis, luctus sollicitudin nunc. Vestibulum vel justo semper, vestibulum dui vehicula, egestas dui. Maecenas lacus.";
+        NSString *eventContent = self.myEvent.eventDescription;
         contentLabel.text = eventContent;
         contentLabel.font = [contentLabel.font fontWithSize:12];
         
@@ -121,7 +122,7 @@
         UIImageView *pinImage = (UIImageView *)[cell viewWithTag:6];
         UILabel *addressLabel = (UILabel *)[cell viewWithTag:7];
         NSString *pinAddressString = @"pinImage";
-        NSString *eventAddressString = @"888 Brannan St, San Franscisco, CA 94103";
+        NSString *eventAddressString = self.myEvent.eventAddress;
         addressLabel.text = eventAddressString;
         addressLabel.font = [addressLabel.font fontWithSize:12];
         pinImage.image = [UIImage imageNamed:pinAddressString];
@@ -131,11 +132,16 @@
         MKMapView *mapView = (MKMapView*)[cell viewWithTag:8];
         
         //Takes a center point and a span in miles (converted from meters using above method)
-        CLLocationCoordinate2D startCoord = CLLocationCoordinate2DMake(37.766997, -122.422032);
+        CLLocationCoordinate2D startCoord = CLLocationCoordinate2DMake([self.myEvent.latitude doubleValue],[self.myEvent.longitude doubleValue]);
         MKCoordinateRegion coordinateRegion = MKCoordinateRegionMakeWithDistance(startCoord, 500,500);
         
         [mapView setRegion:coordinateRegion animated:YES];
         
+        EventAnnotation *eventAnnotation = [[EventAnnotation alloc]initWithEvent:self.myEvent];
+        eventAnnotation.annotationView.enabled = NO;
+        [mapView addAnnotation:eventAnnotation];
+        
+
         
         /*
          MKMapView *mapView = (MKMapView*)[cell viewWithTag:2];

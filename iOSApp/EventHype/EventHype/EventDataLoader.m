@@ -47,7 +47,8 @@
                 NSMutableArray *arrayOfEventObjects = [[NSMutableArray alloc] init];
                 for(NSDictionary *eventDict in array){
                     Event *event = [[Event alloc] initWithParameters:eventDict];
-                    [arrayOfEventObjects addObject:event];
+                    if(![event.latitude isEqualToString:@""] && ![event.longitude isEqualToString:@""])
+                        [arrayOfEventObjects addObject:event];
                 }
                 [self.delegate sendEventData: arrayOfEventObjects];
             }
