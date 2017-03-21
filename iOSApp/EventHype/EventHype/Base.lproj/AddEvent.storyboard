@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12113" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gZJ-3m-kMW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gZJ-3m-kMW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12078"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -80,7 +80,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGq-eg-K2J" customClass="BEMCheckBox">
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGq-eg-K2J" customClass="BEMCheckBox">
                                                     <rect key="frame" x="337" y="22" width="30" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>
@@ -139,7 +139,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AsE-Of-uj8" customClass="BEMCheckBox">
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AsE-Of-uj8" customClass="BEMCheckBox">
                                                     <rect key="frame" x="337" y="22" width="30" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>
@@ -201,7 +201,7 @@
                                                         <action selector="textFieldDoneEditing:" destination="ZEn-Tx-2uo" eventType="editingDidEnd" id="cK0-kX-gMf"/>
                                                     </connections>
                                                 </textField>
-                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6a-Cp-4jo" customClass="BEMCheckBox">
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6a-Cp-4jo" customClass="BEMCheckBox">
                                                     <rect key="frame" x="337" y="22" width="30" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>
@@ -248,7 +248,7 @@
                                                         <action selector="textFieldDoneEditing:" destination="Eu0-qG-EiJ" eventType="editingDidEnd" id="Cii-Ca-MDf"/>
                                                     </connections>
                                                 </textField>
-                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQw-hf-Vxx" customClass="BEMCheckBox">
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jQw-hf-Vxx" customClass="BEMCheckBox">
                                                     <rect key="frame" x="337" y="22" width="30" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>
@@ -295,7 +295,7 @@
                                                         <action selector="textFieldDoneEditing:" destination="EJX-aC-RkY" eventType="editingDidEnd" id="2In-YW-fb8"/>
                                                     </connections>
                                                 </textField>
-                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6Z-7k-XcP" customClass="BEMCheckBox">
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q6Z-7k-XcP" customClass="BEMCheckBox">
                                                     <rect key="frame" x="337" y="22" width="30" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>
@@ -342,7 +342,7 @@
                                                         <action selector="textFieldDoneEditing:" destination="wgP-mf-pKK" eventType="editingDidEnd" id="zuq-Hb-EPq"/>
                                                     </connections>
                                                 </textField>
-                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Rm-IO-pcb" customClass="BEMCheckBox">
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Rm-IO-pcb" customClass="BEMCheckBox">
                                                     <rect key="frame" x="337" y="22" width="30" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>
@@ -389,7 +389,7 @@
                                                         <action selector="textFieldDoneEditing:" destination="VFN-Xw-Vjs" eventType="editingDidEnd" id="2o7-HU-OGs"/>
                                                     </connections>
                                                 </textField>
-                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDU-qT-RCn" customClass="BEMCheckBox">
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDU-qT-RCn" customClass="BEMCheckBox">
                                                     <rect key="frame" x="337" y="22" width="30" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>

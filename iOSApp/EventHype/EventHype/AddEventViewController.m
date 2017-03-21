@@ -41,7 +41,6 @@
 @property (nonatomic) NSString *Tag;
 
 @property EventDataLoader *dataLoader;
-@property int cellFilledCount;
 
 @end
 
@@ -51,14 +50,11 @@
     [super viewDidLoad];
     self.addNewEventButton.layer.cornerRadius = 10; // this value vary as per your desire
     self.addNewEventButton.clipsToBounds = YES;
-    [self.addNewEventButton setEnabled:NO];
     self.imagePicker.delegate = self;
     self.eventCreationTableView.dataSource = self;
     self.eventCreationTableView.delegate = self;
     self.dataLoader = [EventDataLoader sharedManager];
-    self.cellFilledCount = 0;
 
-    self.addNewEventButton.enabled = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -90,46 +86,68 @@
 
 - (IBAction)addNewEvent:(UIButton *)sender {
     
-    Event *newEvent = [[Event alloc] init];
-    newEvent.idNumber = arc4random_uniform(INT_MAX);
-    newEvent.eventName = self.name;
-    newEvent.eventDescription = self.Description;
-    newEvent.eventAddress = self.Location;
-    newEvent.latitude = self.lat;
-    newEvent.longitude = self.lon;
     
-    NSRange rng = [self.StartDate rangeOfString:@" "];
-    NSString *first = [self.StartDate substringToIndex:rng.location];
-    NSString *last = [self.StartDate substringFromIndex:rng.location + 1];
-    
-    newEvent.startDate = first;
-    newEvent.startTime = last;
-    
-    NSRange rng2 = [self.EndDate rangeOfString:@" "];
-    NSString *first2 = [self.EndDate substringToIndex:rng2.location];
-    NSString *last2 = [self.EndDate substringFromIndex:rng2.location + 1];
+    if([self isValidInput]){
+        Event *newEvent = [[Event alloc] init];
+        newEvent.idNumber = arc4random_uniform(INT_MAX);
+        newEvent.eventName = self.name;
+        newEvent.eventDescription = self.Description;
+        newEvent.eventAddress = self.Location;
+        newEvent.latitude = self.lat;
+        newEvent.longitude = self.lon;
+        
+        NSRange rng = [self.StartDate rangeOfString:@" "];
+        NSString *first = [self.StartDate substringToIndex:rng.location];
+        NSString *last = [self.StartDate substringFromIndex:rng.location + 1];
+        
+        newEvent.startDate = first;
+        newEvent.startTime = last;
+        
+        NSRange rng2 = [self.EndDate rangeOfString:@" "];
+        NSString *first2 = [self.EndDate substringToIndex:rng2.location];
+        NSString *last2 = [self.EndDate substringFromIndex:rng2.location + 1];
 
-    
-    
-    newEvent.endDate = first2;
-    newEvent.endTime = last2;
-    
-    newEvent.price = self.Price;
-    newEvent.category = self.Tag;
-    
-    newEvent.createdAt = [[NSDate date] description];
-    newEvent.updatedAt = [[NSDate date] description];
-    
-    newEvent.subcategory = @"";
-    newEvent.url = @"";
-    newEvent.sourceUrl = @"";
-    newEvent.logoURL = @"";
-    
-    //make a call to our data loading class to post the event on completetion block dismiss the controller.
-    
-    [self.dataLoader sendEvent:newEvent];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+        
+        
+        newEvent.endDate = first2;
+        newEvent.endTime = last2;
+        
+        newEvent.price = self.Price;
+        newEvent.category = self.Tag;
+        
+        newEvent.createdAt = [[NSDate date] description];
+        newEvent.updatedAt = [[NSDate date] description];
+        
+        newEvent.subcategory = @"";
+        newEvent.url = @"";
+        newEvent.sourceUrl = @"";
+        newEvent.logoURL = @"";
+        
+        //make a call to our data loading class to post the event on completetion block dismiss the controller.
+        
+        [self.dataLoader sendEvent:newEvent];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:@"Missing Field"
+                                     message:@"Please fill out all fields then try again."
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        
+        
+        UIAlertAction* okay = [UIAlertAction
+                                   actionWithTitle:@"Ok"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       [alert dismissViewControllerAnimated:YES completion:nil];
+                                   }];
+        
+        [alert addAction:okay];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (IBAction)addEventPhotoButton:(UIButton *)sender {
@@ -294,9 +312,6 @@
 
 -(void)cellFinishedEditingAndIsFilled:(BOOL)filled withData:(NSString *)data fromIndex:(int)index {
     if(filled){
-        self.cellFilledCount++;
-        if(self.cellFilledCount == 7)
-            self.addNewEventButton.enabled = YES;
         switch (index) {
             case 0:
                 self.name = data;
@@ -317,16 +332,10 @@
             default:
                 break;
         }
-    } else if(!filled && self.cellFilledCount != 0){
-        self.cellFilledCount --;
     }
 }
 
 -(void)expandableCellFinishedEditingAndIsFilled:(BOOL)filled withData:(NSString *)data fromIndex:(int)index{
-    if(filled){
-        self.cellFilledCount++;
-        if(self.cellFilledCount == 7)
-            self.addNewEventButton.enabled = YES;
         switch (index) {
             case 3:
                 self.StartDate = data;
@@ -337,8 +346,13 @@
             default:
                 break;
         }
-    } else if(!filled && self.cellFilledCount != 0){
-        self.cellFilledCount --;
+}
+
+-(BOOL)isValidInput{
+    if(self.name.length == 0 || self.Description.length == 0 ||self.Location.length == 0 ||self.StartDate.length == 0 ||self.EndDate.length == 0 || self.Price.length == 0 || self.Tag.length == 0){
+        return false;
+    } else {
+        return true;
     }
 }
 @end
