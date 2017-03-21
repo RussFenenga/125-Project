@@ -57,6 +57,38 @@
 }
 
 -(void)sendEvent:(Event*) eventToSend{
+    
+    
+    
+    CLLocationCoordinate2D center;
+    NSString *esc_addr =  [eventToSend.eventAddress stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *req = [NSString stringWithFormat:@"http://maps.google.com/maps/api/geocode/json?sensor=false&address=%@", esc_addr];
+    NSData *responseData = [[NSData alloc] initWithContentsOfURL:
+                            [NSURL URLWithString:req]];    NSError *error;
+    NSMutableDictionary *responseDictionary = [NSJSONSerialization
+                                               JSONObjectWithData:responseData
+                                               options:NSJSONReadingMutableContainers
+                                               error:&error];
+    if( error )
+    {
+        NSLog(@"%@", [error localizedDescription]);
+        center.latitude = 0;
+        center.longitude = 0;
+        eventToSend.latitude = [[NSNumber numberWithDouble:center.latitude] stringValue];
+        eventToSend.longitude = [[NSNumber numberWithDouble:center.longitude] stringValue];
+    }
+    else {
+        NSArray *results = (NSArray *) responseDictionary[@"results"];
+        NSDictionary *firstItem = (NSDictionary *) [results objectAtIndex:0];
+        NSDictionary *geometry = (NSDictionary *) [firstItem objectForKey:@"geometry"];
+        NSDictionary *location = (NSDictionary *) [geometry objectForKey:@"location"];
+        NSNumber *lat = (NSNumber *) [location objectForKey:@"lat"];
+        NSNumber *lng = (NSNumber *) [location objectForKey:@"lng"];
+        
+        eventToSend.latitude = [lat stringValue];
+        eventToSend.longitude = [lng stringValue];
+    }
+    
 
     NSURLSessionConfiguration* sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     
@@ -107,11 +139,12 @@
     request.HTTPMethod = @"GET";
     
     /* Start a new Task */
+    [self.delegate eventSavedToDatabase:eventToSend];
     NSURLSessionDataTask* task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error == nil) {
             // Success
             NSLog(@"URL Session Task Succeeded: HTTP %ld", ((NSHTTPURLResponse*)response).statusCode);
-            [self.delegate eventSavedToDatabase:eventToSend];
+            //[self.delegate eventSavedToDatabase:eventToSend];
         }
         else {
             // Failure

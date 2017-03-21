@@ -303,7 +303,7 @@
                 break;
             case 1:
                 self.Location = data;
-                [self setLatLon:data];
+                //we calculate lat lon in the data model when we make the request
                 break;
             case 2:
                 self.Description = data;
@@ -341,18 +341,4 @@
         self.cellFilledCount --;
     }
 }
-
--(void)setLatLon:(NSString *)address {
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:address
-                 completionHandler:^(NSArray* placemarks, NSError* error){
-                     if (placemarks && placemarks.count > 0) {
-                         CLPlacemark *topResult = [placemarks objectAtIndex:0];
-                         self.lat = [[NSNumber numberWithDouble:topResult.location.coordinate.latitude] stringValue];
-                         self.lon = [[NSNumber numberWithDouble:topResult.location.coordinate.longitude] stringValue];
-                     }
-                 }
-     ];
-}
-
 @end
