@@ -233,7 +233,7 @@
 				TargetAttributes = {
 					8938858F1E6CDDBB00B70D79 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = HY5NYNN4D3;
+						DevelopmentTeam = PUREWH9ECV;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -471,7 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = HY5NYNN4D3;
+				DEVELOPMENT_TEAM = PUREWH9ECV;
 				INFOPLIST_FILE = EventHype/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -486,7 +486,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = HY5NYNN4D3;
+				DEVELOPMENT_TEAM = PUREWH9ECV;
 				INFOPLIST_FILE = EventHype/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

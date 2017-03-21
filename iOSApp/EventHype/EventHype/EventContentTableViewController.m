@@ -13,32 +13,12 @@
 @interface EventContentTableViewController ()
 
 
-
-/*
- 
- UIImageView *eventImage;
- UILabel *eventDateLabel;
- UILabel *eventHashTagLabel;
- UILabel *eventTitleLabel;
- UILabel *eventContent;
- UIImageView *eventAddressPinImage;
- UILabel *eventAddressLabel;
- 
- */
-
-
 @end
 
 @implementation EventContentTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -65,8 +45,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     
-    
-    
     // Configure the cell...
     if (indexPath.row == 0) {
         NSString *eventImageTitle = @"eventContentImage";
@@ -82,10 +60,22 @@
         cell.userInteractionEnabled = NO;
         UILabel *dateLabel = (UILabel *)[cell viewWithTag:2];
         UILabel *hashTagLabel = (UILabel *)[cell viewWithTag:3];
+        //startDate
+        //NSString *dateString = @"POSTED FEBRUARY 4, 2017";
+        NSString *dateString = self.myEvent.startDate;
         
-        NSString *dateString = @"POSTED FEBRUARY 4, 2017";
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate *date  = [dateFormatter dateFromString:dateString];
+        
+        // Convert to new Date Format
+        [dateFormatter setDateFormat:@"MMMM dd, yyyy"];
+        NSString *newDate = [dateFormatter stringFromDate:date];
+        NSString *postedString = [NSString stringWithFormat:@"POSTED: %@",newDate];
+        
+        
         NSString *hashTagString = [NSString stringWithFormat:@"#%@",self.myEvent.category];
-        dateLabel.text = dateString;
+        dateLabel.text = postedString;
         dateLabel.font = [dateLabel.font fontWithSize:14];
         hashTagLabel.text = hashTagString;
         hashTagLabel.font = [hashTagLabel.font fontWithSize:14];
@@ -101,10 +91,6 @@
         titleLabel.text = eventTitle;
         titleLabel.font = [titleLabel.font fontWithSize:26];
         
-        
-        
-        
-        
     }else if (indexPath.row == 3) {
         
         cell = [tableView dequeueReusableCellWithIdentifier:@"eventContent" forIndexPath:indexPath];
@@ -114,7 +100,7 @@
         contentLabel.numberOfLines = 0;
         NSString *eventContent = self.myEvent.eventDescription;
         contentLabel.text = eventContent;
-        contentLabel.font = [contentLabel.font fontWithSize:12];
+        contentLabel.font = [contentLabel.font fontWithSize:14];
         
     }else if (indexPath.row == 4) {
         
@@ -125,7 +111,7 @@
         NSString *pinAddressString = @"pin";
         NSString *eventAddressString = self.myEvent.eventAddress;
         addressLabel.text = eventAddressString;
-        addressLabel.font = [addressLabel.font fontWithSize:12];
+        addressLabel.font = [addressLabel.font fontWithSize:14];
         pinImage.image = [UIImage imageNamed:pinAddressString];
     }else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"eventMap" forIndexPath:indexPath];
@@ -142,23 +128,6 @@
         eventAnnotation.annotationView.enabled = NO;
         [mapView addAnnotation:eventAnnotation];
         
-
-        
-        /*
-         MKMapView *mapView = (MKMapView*)[cell viewWithTag:2];
-         
-         //Takes a center point and a span in miles (converted from meters using above method)
-         CLLocationCoordinate2D startCoord = CLLocationCoordinate2DMake(37.766997, -122.422032);
-         MKCoordinateRegion adjustedRegion = [mapView regionThatFits:MKCoordinateRegionMakeWithDistance(startCoord, MilesToMeters(0.5f), MilesToMeters(0.5f))];
-         [mapView setRegion:adjustedRegion animated:YES];
-         
-         MKCoordinateRegion coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500,500);
-         [self.eventMapView setRegion:coordinateRegion];
-         
-         */
-        
-        NSLog(@"ELSE CASEEEE YOOOO\n");
-        
     }
     
     
@@ -166,61 +135,5 @@
 }
 
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    _eventImage.image =
-    
-    
-    return cell;
-}*/
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
