@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', 'PageController@showMain');
-
+Route::match(['GET', 'POST'], '/', 'PageController@showMain');
 Route::get('/eventbrite', 'EventbriteController@updateIndex');
