@@ -45,14 +45,14 @@ Git repository ( [https://github.com/ArturGrigio/125-Project](https://github.com
 
 ---
 
-#Web API
+# Web API
 
-###Get all events
+### Get all events
  - type: `POST or GET`
  - url: `eventhype.me/api/events`
  - returns: `(array)` of event objects
  
-###Get specific event
+### Get specific event
  - type: `POST or GET`
  - request parameters:
    - column: `string` one of these columns: 
@@ -79,3 +79,8 @@ Git repository ( [https://github.com/ArturGrigio/125-Project](https://github.com
    - query: `string` a string for SQL query
  - url: `eventhype.me/api/event` + `?column=`COLUMN_NAME + `&operator=`OPERATOR + `&query=`QUERY
  - returns: `(array)` with event object(s)
+
+### Post event
+ - type: `POST` or `GET`
+ - url: `eventhype.me/api/event/insert`
+ - returns: `JSON` object with status of `200` or `500` 
