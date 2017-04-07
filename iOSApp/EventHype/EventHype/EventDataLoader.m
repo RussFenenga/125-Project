@@ -10,6 +10,8 @@
 
 @implementation EventDataLoader
 
+//implement singleton for dataloading class.  We want this to be a singleton because we only want one instance of it being used.
+
 + (id)sharedManager {
     static EventDataLoader *dataLoader = nil;
     static dispatch_once_t onceToken;
